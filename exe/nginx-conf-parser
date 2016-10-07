@@ -1,0 +1,18 @@
+#!/usr/bin/env ruby
+
+$LOAD_PATH.unshift(File.join(File.dirname(__FILE__), *%w(.. lib)))
+
+require "conf"
+
+parser = Conf::Parser.new
+
+result = parser.parse_with_debug %Q{
+  user  www-data;
+  worker_processes  4;
+
+  #error_log  logs/error.log;
+  #error_log  logs/error.log  notice;
+  #error_log  logs/error.log  info;
+}
+
+p result
