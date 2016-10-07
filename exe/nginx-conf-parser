@@ -6,19 +6,38 @@ require "conf"
 
 parser = Conf::Parser.new
 
+# 
+
+#   
+#   #error_log  logs/error.log  notice;
+#   #error_log  logs/error.log  info;
+
+#   events {
+#     worker_connections  1024;
+#   }
+#   http {
+#     include       mime.types;
+#     access_log  logs/access.log  main;
+#   }
+
 content = <<-EOB
-  user  www-data;
-  worker_processes  4;
-
-  #error_log  logs/error.log;
-  #error_log  logs/error.log  notice;
-  #error_log  logs/error.log  info;
-
-  events {
-    worker_connections  1024;
-  }
+user "www-data";
+worker_processes  4;
+#error_log  logs/error.log;
+set $aaa 1;
+set $bbb "b";
 EOB
 
 result = parser.parse_with_debug(content)
 
+transform = Conf::Transform.new
+
+puts "Result:"
+
 p result
+
+require "pp"
+
+puts "Transform:"
+
+pp transform.do(result) if result
