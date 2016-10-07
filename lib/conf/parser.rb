@@ -24,7 +24,7 @@ module Conf
     end
 
     rule :parameter do
-      string | variable | integer
+      string | variable | integer | flag
     end
 
     rule :block_identifier do
@@ -44,6 +44,10 @@ module Conf
         str('\\') >> any |
         str('"').absent? >> any 
       ).repeat.as(:string) >> str('"')
+    end
+
+    rule :flag do
+      (str("on") | str("off")).as(:flag)
     end
 
     rule :space do

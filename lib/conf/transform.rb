@@ -35,6 +35,10 @@ module Conf
       t.rule(:variable => simple(:var)) do
         "var_" << var
       end
+
+      t.rule(:flag => simple(:flg)) do
+        "flag_" << flg
+      end
     end
     
     def do(tree)

@@ -52,6 +52,19 @@ class ParserTest < Minitest::Test
     assert_equal "aaa", result[0][:statement][1][:variable]
   end
 
+  def test_stmt_with_flag_param
+    content = <<-EOB
+    flag on;
+    flag off;
+    EOB
+
+    result = @parser.parse_with_debug(content)
+
+    assert_equal "flag", result[0][:statement][0][:command]
+    assert_equal "on", result[0][:statement][1][:flag]
+    assert_equal "off", result[1][:statement][1][:flag]
+  end
+
   def test_comment
     content = <<-EOB
     #error_log  logs/error.log;

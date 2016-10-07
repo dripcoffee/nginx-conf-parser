@@ -26,6 +26,8 @@ worker_processes  4;
 #error_log  logs/error.log;
 set $aaa 1;
 set $bbb "b";
+flag on;
+
 EOB
 
 result = parser.parse_with_debug(content)
