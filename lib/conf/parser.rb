@@ -5,8 +5,9 @@ require "pp"
 module Conf
   class Parser < Parslet::Parser
     root :body
+
     rule :body do
-      space? >> (statement | comment).repeat >> space?
+      space? >> (statement | block | comment).repeat >> space?
     end
 
     # A statement is a Nginx command with parameters
@@ -24,6 +25,10 @@ module Conf
 
     rule :comment do
       space? >> str("#") >> any.repeat >> space.repeat
+    end
+
+    rule :block do
+      space? >> command >> space? >> parameter.repeat >> space? >> str("{") >> body >> str("}") >> space.repeat
     end
 
     rule :space do
