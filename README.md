@@ -2,6 +2,7 @@
 
 ![](https://img.shields.io/badge/license-MIT-blue.svg)
 [![](https://api.travis-ci.org/crispgm/nginx-conf-parser.svg)](https://travis-ci.org/crispgm/nginx-conf-parser)
+[![Code Climate](https://codeclimate.com/github/crispgm/nginx-conf-parser/badges/gpa.svg)](https://codeclimate.com/github/crispgm/nginx-conf-parser)
 
 ## Installation
 
