@@ -16,7 +16,7 @@ module Conf
     end
 
     rule :block do
-      space? >> (block_identifier >> space.repeat >> parameter.repeat >> space.repeat >> str("{") >> body >> str("}")).as(:block) >> space?
+      space? >> (block_identifier >> space.repeat >> parameter.repeat >> space.repeat >> str('{') >> body >> str('}')).as(:block) >> space?
     end
 
     rule :command do
@@ -28,7 +28,7 @@ module Conf
     end
 
     rule :block_identifier do
-      str("events") | str("http") | str("server") | str("location") | str("if")
+      str('events') | str('http') | str('server') | str('location') | str('if')
     end
 
     rule :variable do
@@ -36,7 +36,7 @@ module Conf
     end
 
     rule :integer do
-      ((str('+') | str('-')).maybe >> match("[0-9]").repeat(1)).as(:integer)
+      ((str('+') | str('-')).maybe >> match('[0-9]').repeat(1)).as(:integer)
     end
     
     rule :string do
@@ -47,7 +47,7 @@ module Conf
     end
 
     rule :flag do
-      (str("on") | str("off")).as(:flag)
+      (str('on') | str('off')).as(:flag)
     end
 
     rule :space do
@@ -63,7 +63,7 @@ module Conf
     end
 
     rule :delimiter do
-      str(";")
+      str(';')
     end
   end
 end
