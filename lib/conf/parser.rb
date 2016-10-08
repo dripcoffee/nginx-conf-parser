@@ -28,7 +28,7 @@ module Conf
     end
 
     rule :block_identifier do
-      str('events') | str('http') | str('server') | str('location') | str('if')
+      str('events') | str('http') | str('server') | str('location') | str('if') | str('upstream') | str('limit_except') | str('mail') | str('imap')
     end
 
     rule :variable do
