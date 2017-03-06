@@ -26,6 +26,7 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.5.0)
     rspec-support (3.5.0)
+    shoulda-context (1.2.2)
 
 PLATFORMS
   ruby
@@ -36,6 +37,7 @@ DEPENDENCIES
   nginx-conf-parser!
   rake (~> 10.0)
   rspec
+  shoulda-context
 
 BUNDLED WITH
-   1.13.2
+   1.13.6
